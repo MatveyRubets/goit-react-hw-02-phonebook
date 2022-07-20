@@ -1,9 +1,15 @@
 import React from 'react';
 
-const ContactList = () => {
+const ContactList = ({ contacts }) => {
   return (
     <ul>
-      <li>Hi</li>
+      {contacts.map(({ name, number, id }) => {
+        return (
+          <li key={id}>
+            {name}: {number}
+          </li>
+        );
+      })}
     </ul>
   );
 };
