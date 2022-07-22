@@ -35,7 +35,11 @@ export default class App extends Component {
     }));
   };
 
-  deleteContact = e => {};
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
 
   searchFilter = e => {
     this.setState({ filter: e.currentTarget.value });
@@ -60,8 +64,11 @@ export default class App extends Component {
           <ContactAdd addContact={this.addContact} />
         </Section>
         <Section title="Contacts">
-          <Filter filter={filter} search={this.searchFilter} />
-          <ContactList contacts={visibleContacts} />
+          <Filter filter={filter} contactSearch={this.searchFilter} />
+          <ContactList
+            contacts={visibleContacts}
+            removeContact={this.deleteContact}
+          />
         </Section>
       </>
     );
