@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './ContactAdd.module.css';
+import style from './ContactForm.module.css';
 
 class ContactAdd extends Component {
   state = {
@@ -20,9 +20,6 @@ class ContactAdd extends Component {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
-
-    // [e.target.name]: e.target.value
-    // [e.target.name] = значение e.target.name
   };
 
   clearState = () => {

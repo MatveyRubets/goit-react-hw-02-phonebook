@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import Section from './Section/Section';
-import ContactAdd from './ContactAdd/ContactAdd';
+import ContactAdd from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
@@ -45,7 +45,7 @@ export default class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
-  getContacts = () => {
+  getVisibleContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
 
@@ -56,7 +56,7 @@ export default class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const visibleContacts = this.getContacts();
+    const visibleContacts = this.getVisibleContacts();
 
     return (
       <>
