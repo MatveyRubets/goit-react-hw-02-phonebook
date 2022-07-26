@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import Section from './Section/Section';
-import ContactAdd from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
@@ -61,7 +61,7 @@ export default class App extends Component {
     return (
       <>
         <Section title="Phonebook">
-          <ContactAdd addContact={this.addContact} />
+          <ContactForm addContact={this.addContact} />
         </Section>
         <Section title="Contacts">
           <Filter filter={filter} contactSearch={this.searchFilter} />
